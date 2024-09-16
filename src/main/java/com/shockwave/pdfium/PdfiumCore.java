@@ -268,7 +268,7 @@ public class PdfiumCore {
             try {
                 //nativeRenderPage(doc.mNativePagesPtr.get(pageIndex), surface, mCurrentDpi);
                 nativeRenderPage(doc.mNativePagesPtr.get(pageIndex), surface, mCurrentDpi,
-                        startX, startY, drawSizeX, drawSizeY, renderAnnot, doc.mNativeDocPtr);
+                        startX, startY, drawSizeX, drawSizeY, renderAnnot);
             } catch (NullPointerException e) {
                 Log.e(TAG, "mContext may be null");
                 e.printStackTrace();
@@ -306,7 +306,7 @@ public class PdfiumCore {
         synchronized (lock) {
             try {
                 nativeRenderPageBitmap(doc.mNativePagesPtr.get(pageIndex), bitmap, mCurrentDpi,
-                        startX, startY, drawSizeX, drawSizeY, renderAnnot);
+                        startX, startY, drawSizeX, drawSizeY, renderAnnot, doc.mNativeDocPtr);
             } catch (NullPointerException e) {
                 Log.e(TAG, "mContext may be null");
                 e.printStackTrace();
