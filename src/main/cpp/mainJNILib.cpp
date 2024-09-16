@@ -430,7 +430,7 @@ static void renderPageInternal( FPDF_PAGE page,
 JNI_FUNC(void, PdfiumCore, nativeRenderPage)(JNI_ARGS, jlong pagePtr, jobject objSurface,
                                              jint dpi, jint startX, jint startY,
                                              jint drawSizeHor, jint drawSizeVer,
-                                             jboolean renderAnnot, jlong docPtr){
+                                             jboolean renderAnnot){
     ANativeWindow *nativeWindow = ANativeWindow_fromSurface(env, objSurface);
     if(nativeWindow == NULL){
         LOGE("native window pointer null");
@@ -471,7 +471,7 @@ JNI_FUNC(void, PdfiumCore, nativeRenderPage)(JNI_ARGS, jlong pagePtr, jobject ob
 JNI_FUNC(void, PdfiumCore, nativeRenderPageBitmap)(JNI_ARGS, jlong pagePtr, jobject bitmap,
                                              jint dpi, jint startX, jint startY,
                                              jint drawSizeHor, jint drawSizeVer,
-                                             jboolean renderAnnot){
+                                             jboolean renderAnnot, jlong docPtr){
 
     FPDF_PAGE page = reinterpret_cast<FPDF_PAGE>(pagePtr);
 
